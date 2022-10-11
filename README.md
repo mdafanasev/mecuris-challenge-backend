@@ -24,6 +24,7 @@ on the 3D model.
 
 - Node.JS 18.10.0
 - NPM 8.19.2
+- PostgreSQL 14.5
 
 [Volta](https://volta.sh/) is recommended tool to manage Node.JS and NPM versions
 
@@ -33,6 +34,22 @@ Install dependencies:
 
 ```bash
 npm install
+```
+
+Use environment variables or `.env` file to configure access to the PostgreSQL:
+
+```
+MECURIS_DB_HOST=dbhost
+MECURIS_DB_PORT=5432
+MECURIS_DB_USER=username
+MECURIS_DB_PASSWORD=password
+MECURIS_DB_NAME=dbname
+```
+
+You can just copy `.env.example` and fill it:
+
+```bash
+cp .env.example .env
 ```
 
 Then run the app in dev mode:
