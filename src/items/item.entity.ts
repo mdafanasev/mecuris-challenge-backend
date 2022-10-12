@@ -14,6 +14,12 @@ export class Item {
   @Column()
   name: string;
 
+  @Column()
+  modelUrl: string;
+
+  @Column()
+  previewUrl: string;
+
   @Column({ default: false })
   isRemoved: boolean;
 
