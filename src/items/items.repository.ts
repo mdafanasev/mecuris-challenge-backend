@@ -17,6 +17,7 @@ export class ItemsRepository extends Repository<Item> {
   getDetails(itemId: number): Promise<Item | null> {
     return this.findOne({
       where: { id: itemId, isRemoved: false },
+      relations: { attributes: true },
     });
   }
 }

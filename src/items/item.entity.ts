@@ -4,7 +4,9 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
+import { Attribute } from './attribute.entity';
 
 @Entity('items')
 export class Item {
@@ -28,4 +30,7 @@ export class Item {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @OneToMany(() => Attribute, (attribute) => attribute.item)
+  attributes: Attribute[];
 }
