@@ -59,3 +59,38 @@ npm start
 ```
 
 Default port is 3000, so the application will be available in [http://localhost:3000](http://localhost:3000)
+
+### Static files and DB dump
+
+You can use resources from `/_data` directory.
+
+To use static files just copy `static` folder to the root of project:
+
+```bash
+cp -r _data/static ./static
+```
+
+To load postgres dump:
+
+```bash
+psql dbname < ./_data/mecuris_challenge_db_v1.sql
+```
+
+Replace dbname with database name from `.env` file
+
+## Data model
+
+### Item
+
+Keeps name, 3D model and preview image. Can be removed (not physically, just using `isRemoved` flag)
+
+### Attribute
+
+Linked to `Item`. Keeps name, type and value of the attribute. Value can be updated
+
+## Can be improved
+
+- Add endpoint to create new entries and attributes 
+- Replace JSON-based glTF with binary glb format
+- Implement updating previews (see README in the frontend repo)
+- Dockerize application to make deployment simpler
