@@ -18,7 +18,18 @@ export class ItemsService {
     return this.itemsRepository.getDetails(itemId);
   }
 
-  updateAttribute(attrId: number, newValue: string): Promise<any> {
-    return this.attributesRepository.updateAttribute(attrId, newValue);
+  async updateAttribute(attrId: number, newValue: string): Promise<void> {
+    await this.attributesRepository.updateAttribute(attrId, newValue);
+    return;
+  }
+
+  async removeItem(itemId: number): Promise<void> {
+    await this.itemsRepository.removeItem(itemId);
+    return;
+  }
+
+  async restoreAll(): Promise<void> {
+    await this.itemsRepository.restoreAll();
+    return;
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { DataSource, Repository } from 'typeorm';
+import { DataSource, Repository, UpdateResult } from 'typeorm';
 import { Item } from './item.entity';
 
 @Injectable()
@@ -19,5 +19,13 @@ export class ItemsRepository extends Repository<Item> {
       where: { id: itemId, isRemoved: false },
       relations: { attributes: true },
     });
+  }
+
+  removeItem(itemId: number): Promise<UpdateResult> {
+    return this.update({ id: itemId }, { isRemoved: true });
+  }
+
+  restoreAll(): Promise<UpdateResult> {
+    return this.update({ isRemoved: true }, { isRemoved: false });
   }
 }
