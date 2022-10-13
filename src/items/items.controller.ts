@@ -1,6 +1,13 @@
-import { Controller, Get, NotFoundException, Param } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  NotFoundException,
+  Param,
+  Patch,
+} from '@nestjs/common';
 import { ItemsService } from './items.service';
-import { ItemDetailsDto, ItemDto } from './items.dto';
+import { ItemDetailsDto, ItemDto, UpdateAttributeDTO } from './items.dto';
 
 @Controller('items')
 export class ItemsController {
@@ -19,5 +26,13 @@ export class ItemsController {
       throw new NotFoundException();
     }
     return new ItemDetailsDto(item);
+  }
+
+  @Patch(':itemId/attributes/:attrId')
+  async updateAttribute(
+    @Param('attrId') attrId: number,
+    @Body() updateDto: UpdateAttributeDTO,
+  ) {
+    return this.itemsService.updateAttribute(attrId, updateDto.value);
   }
 }

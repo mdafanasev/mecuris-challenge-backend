@@ -52,3 +52,7 @@ class AttributeDto {
     this.updatedAt = attribute.updatedAt;
   }
 }
+
+export class UpdateAttributeDTO {
+  value: string;
+}
