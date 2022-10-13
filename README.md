@@ -4,6 +4,10 @@ Back-end part for Mercuris challenge
 
 Front-end part is [here](https://github.com/mdafanasev/mecuris-challenge-frontend)
 
+## Preview
+
+[http://mecuris-challenge.afsv.me/](http://mecuris-challenge.afsv.me/)
+
 ## Description of the challenge
 
 Implement a simple configurator application that retrieves a configuration data from the server and
@@ -93,4 +97,5 @@ Linked to `Item`. Keeps name, type and value of the attribute. Value can be upda
 - Add endpoint to create new entries and attributes 
 - Replace JSON-based glTF with binary glb format
 - Implement updating previews (see README in the frontend repo)
+- Map string values of attributes to correct types (like a boolean for `true`/`false`)
 - Dockerize application to make deployment simpler
